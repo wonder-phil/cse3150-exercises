@@ -1,11 +1,13 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 /*
-  https://hackingcpp.com/cpp/tools/testing_frameworks.html
+ *
  */
 
 #include <iostream>
 #include "./include/doctest.h"
 #include "fisherYatesTopDown.h"
+
+#include "Permutation.h"
 
 using namespace std;
 
@@ -35,19 +37,20 @@ SUBCASE("swap test") {
 };
 
 
+
 int NOT_random_static_forward() {
   static int val = 0;
   return val++;
 }
 
-int NOT_random_static_backward(int top) {
-  static int val = top;
-  return val;
-}
 
 
 TEST_CASE("Testing fisher_yates top down function") {
 
+
+  Permutation permutation;
+  permutation.setValue(0);
+  permutation.setDirection(permutation.INCREMENT);
 
   int init_list_0[] = {5,40};
 
@@ -58,7 +61,7 @@ TEST_CASE("Testing fisher_yates top down function") {
     show_data(init_list_0, sizeof(init_list_0)/sizeof(init_list_0[0]));
 
     cout << "  :  ";
-    fisher_yates_top_down(init_list_0, sizeof(init_list_0)/sizeof(init_list_0[0]), NOT_random_static_forward);
+    fisher_yates_top_down(init_list_0, sizeof(init_list_0)/sizeof(init_list_0[0]), permutation.getNext );// NOT_random_static_forward);
     
     show_data(init_list_0, sizeof(init_list_0)/sizeof(init_list_0[0]));
 

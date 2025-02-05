@@ -1,6 +1,6 @@
 #include <iostream>
 #include <random>
-#include "fisherYates.h"
+#include "fisherYatesTopDown.h"
 
 
 using namespace std;
