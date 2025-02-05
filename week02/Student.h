@@ -6,6 +6,8 @@
 
 using namespace std;
 
+static bool memoryFreed = false;
+
 struct Student {
 
     Student(string _name, int _number, int _total_homeworks) {
@@ -15,11 +17,17 @@ struct Student {
         homeworks = new int[total_homeworks];
     }
 
-    ~Student() {
-        if (NULL != homeworks) {
-            delete [] homeworks;
-            homeworks = nullptr;
+   Student(const Student & student) : name(student.name), number(student.number), total_homeworks(student.total_homeworks) {
+        if (nullptr != student.homeworks) {
+            homeworks = new int[total_homeworks];
+            for (int i=0; i < total_homeworks; i++) {
+                homeworks[i] = student.homeworks[i];
+            }
         }
+    }
+
+    ~Student() {
+        delete [] homeworks;
     }
 
     string name;
@@ -29,7 +37,7 @@ struct Student {
     int finalExam;
 
     int total_homeworks;
-    int * homeworks;
+    int * homeworks = nullptr;
 
 };
 

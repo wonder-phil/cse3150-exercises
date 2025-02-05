@@ -14,9 +14,14 @@ int main() {
     secondStudent.name = "Ada";
     secondStudent.number = -432;
 
+    firstStudent.homeworks[3] = -99;
+    secondStudent.homeworks[4] = 7777;
+
     cout << firstStudent << endl;
     cout << secondStudent << endl;
 
+    cout << firstStudent.homeworks << endl;
+    cout << secondStudent.homeworks << endl;
 
     return 0;
 }
