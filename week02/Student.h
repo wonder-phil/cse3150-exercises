@@ -16,7 +16,10 @@ struct Student {
     }
 
     ~Student() {
-        delete [] homeworks;
+        if (NULL != homeworks) {
+            delete [] homeworks;
+            homeworks = nullptr;
+        }
     }
 
     string name;
@@ -34,7 +37,8 @@ struct Student {
 ostream & operator<<(std::ostream & os, const Student & student) {
   os << student.name 
      << " "
-     << student.number;
+     << student.number
+     << " ";
 
      for (int i=0; i < student.total_homeworks; i++){
         os << student.homeworks[i]
