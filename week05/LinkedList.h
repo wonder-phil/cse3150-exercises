@@ -34,6 +34,14 @@ class LinkedList {
         current->next = newNode;
     }
 
+    Node * getLastElement() {
+        Node * current = root;
+        while (current->next) {
+            current = current->next;
+        }
+        return current;
+    }
+
     void deleteNode(int val) {
         if (!root) return;
         if (root->data == val) {
@@ -58,7 +66,7 @@ class LinkedList {
         while(current){
             Node* next = current->next;
             delete current;
-           current = next;
+            current = next;
        }
        root = nullptr;
     }
@@ -67,7 +75,7 @@ class LinkedList {
 
 
 ostream & operator<<(ostream & os, const LinkedList & linkedList) {
-    Node* current = linkedList.root;
+    Node * current = linkedList.root;
     while (current) {
         os << *current << " ";
         current = current->next;

@@ -11,7 +11,7 @@ struct Node {
     Node * next;
     int data;
 
-    Node(int val) : data(val), next(nullptr) {}
+    Node(int val) : data{val}, next{nullptr} {}
 };
 
 
