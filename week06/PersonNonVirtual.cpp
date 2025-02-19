@@ -17,14 +17,14 @@ class Father : public Person {
 };
  
 class Mother : public Person {
-public:
-    Mother(int age) : Person(age) { cout<<"Mother::Mother(int age) called"<< endl; }
-    int getMotherAge() { return age; }
+    public:
+        Mother(int age) : Person(age) { cout<<"Mother::Mother(int age) called"<< endl; }
+        int getMotherAge() { return age; }
 };
  
 class Child : public Father, public Mother  {
 public:
-    Child(int age) : Mother(age+22), Father(age + 25)  {
+    Child(int age) : Mother(age + 22), Father(age + 25)  {
         cout<<"Child::Child(int age) called"<< endl;
     }
     void printAgeOfParents() {

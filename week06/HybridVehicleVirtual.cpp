@@ -36,8 +36,6 @@ class Gasoline : public virtual Vehicle {
 
 			return 20.0;
 		}
-
-		
 };
 
 class Electric : public virtual Vehicle {
@@ -55,6 +53,7 @@ class Electric : public virtual Vehicle {
 			return 20.0;
 		}
 
+		void Start() override { cout << "Electric START"  << endl; }
 };
 
 
@@ -88,7 +87,7 @@ class Hybrid : public Electric, public Gasoline {
 			_percentGas = pg;
 		}
 
-		void Start() override { cout << "Hybrid START"  << endl; }
+		//void Start() override { cout << "Hybrid START"  << endl; }
 		void Stop() override { cout << "Hybrid STOP"  << endl; }
 };
 
@@ -97,7 +96,9 @@ int main() {
 	string whichVehicle = "Super vehicle";
 	Hybrid hybrid(whichVehicle);
 
+	cout << "Hybrid start:" << endl;
 	hybrid.Start();
+	cout << "----" << endl;
 
 	cout << hybrid.fuelEffiencyPerDollar() << endl;
 

@@ -6,46 +6,47 @@ using namespace std;
 
 class Vehicle {
 	public:
+
+		string name;
+
 		Vehicle(){}
 		Vehicle(string name) {
-			cout << "Constructor: Vehicle" << endl;
+			cout << "Constructor: Vehicle, name: " << name << endl;
 		}
 		
 		~Vehicle() {
 			cout << "destructor: Vehicle" << endl;
 		}
-		
-		string name;
 };
 
 
 class Gasoline : public Vehicle {
 	public:
 		Gasoline(string name) : Vehicle(name) {
-			cout << "Constructor: Gasoline" << endl;
+			cout << "Constructor: Gasoline, name: " << name << endl;
 		}
 		~Gasoline() {
-			cout << "destructor: Gasoline" << endl;
+			cout << "destructor: Gasoline, name: " << name << endl;
 		}
 };
 
 class Electric : public Vehicle {
 	public:
 		Electric(string name) : Vehicle(name) {
-			cout << "Constructor: Electric" << endl;
+			cout << "Constructor: Electric, name: " << name << endl;
 		}
 		~Electric() {
-			cout << "destructor: Electric" << endl;
+			cout << "destructor: Electric, name: " << name << endl;
 		}
 };
 
 class Hybrid : public Electric, public Gasoline {
 	public:
-		Hybrid(string name) : Electric("Dad"), Gasoline("Mom") {
-			cout << "Constructor: Hybrid" << endl;
+		Hybrid(string name) : Electric(name), Gasoline(name) { // Electric("Electron"), Gasoline("Fuel") {
+			cout << "Constructor: Hybrid, name: " << name << endl;
 		}
 		~Hybrid() {
-			cout << "Destructor: Hybrid" << endl;
+			cout << "Destructor: Hybrid: " << Electric::name << Gasoline::name <<  endl;
 		}
 };
 
