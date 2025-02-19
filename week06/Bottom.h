@@ -4,8 +4,6 @@
 #include "Top.h"
 
 struct Bottom : Top {
-    int myValue;
-
     void myFunction();
 };
 

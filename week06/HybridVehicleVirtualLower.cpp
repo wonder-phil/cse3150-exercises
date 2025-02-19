@@ -41,7 +41,7 @@ class Electric : public Vehicle {
 
 class Hybrid : public virtual Electric, public virtual Gasoline {
 	public:
-		Hybrid(string name) : Electric("Dad"), Gasoline("Mom") {
+		Hybrid(string name) : Electric("Electron"), Gasoline("Fuel") {
 			cout << "Constructor: Hybrid" << endl;
 		}
 		~Hybrid() {

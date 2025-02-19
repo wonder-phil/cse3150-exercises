@@ -2,8 +2,6 @@
 #define _TOP_H
 
 struct Top {
-    int myValue;
-
     void myFunction();
 };
 
