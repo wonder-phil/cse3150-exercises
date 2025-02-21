@@ -1,3 +1,9 @@
+
+/*
+ * Non-virtual multi inheritance 
+ *    Tuning fork inheritance
+ */
+
 #include<iostream>
 
 using namespace std;

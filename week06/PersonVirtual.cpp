@@ -1,3 +1,9 @@
+
+/*
+ * Virtual multi inheritance 
+ *    Diamond inheritance
+ */
+
 #include<iostream>
 
 using namespace std;
@@ -34,7 +40,6 @@ public:
 };
  
 int main()  {
-    
     Child child(10);
     child.printAgeOfParents();
 }
