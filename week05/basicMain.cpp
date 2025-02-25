@@ -18,7 +18,7 @@ int main() {
 
     ll.insertAtEnd(-44);
 
-    cout << "-------------" << endl;
+    cout << "-----ptr-to-end--------" << endl;
 
     Node * ptr_last = ll.getLastElement();
 
@@ -30,15 +30,17 @@ int main() {
     ll_1.insertAtBeginning(1);
     ll_1.insertAtBeginning(-1);
     ll_1.insertAtBeginning(1);
+
     cout << ll_1 << endl;
-    ll_1.deleteNode(-1);
+    ll_1.deleteNodeNumber(2);
     cout << ll_1 << endl;
 
-    LinkedList ll_2 = ll_1;
-    ll_1.deleteNode(-1);
+    //LinkedList ll_2 = ll_1;
+    ll_1.deleteNodeNumber(0);
 
     cout << "-------------" << endl;
 
+    cout << ll_1 << endl;
 
     return 0;
 }

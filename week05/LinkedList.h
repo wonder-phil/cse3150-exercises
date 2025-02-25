@@ -42,29 +42,65 @@ class LinkedList {
         return current;
     }
 
-    void deleteNode(int val) {
+    int getSize() {
+        int size = 0;
+        Node * current = root;
+        while (current) {
+            size ++;
+            current = current->next;
+        }
+        return size;
+    }
+
+    /*
+     * -1 if the position is off
+     */
+
+    int getValueAt(int position) {
+        int value = -1;
+
+        if (!root) return value;
+
+        if (0 == position) {
+            return root->data;
+        }
+        int count = 1;
+        Node * current = root;
+        while (current->next && count <= position) {
+            count++;
+            value = current->data;
+            current = current->next;
+        }
+        return value;
+
+    }
+
+    void deleteNodeNumber(int nodeNumber) {
         if (!root) return;
-        if (root->data == val) {
+
+        if (0 == nodeNumber) {
             Node* temp = root;
             root = root->next;
             delete temp;
             return;
         }
-        Node* current = root;
-        while (current->next && current->next->data != val) {
+        int count = 1;
+        Node * current = root;
+        while (current->next && count != nodeNumber) {
+            count++;
             current = current->next;
         }
         if (current->next) {
-            Node* temp = current->next;
+            Node * temp = current->next;
             current->next = current->next->next;
             delete temp;
         }
     }
 
     ~LinkedList(){
-      Node* current = root;
+      Node * current = root;
         while(current){
-            Node* next = current->next;
+            Node * next = current->next;
             delete current;
             current = next;
        }
