@@ -15,6 +15,27 @@ class LinkedList {
 
     LinkedList() : root(nullptr) {}
 
+    /* */
+    LinkedList(const LinkedList & fromLL) {
+        if (nullptr == fromLL.root) {
+            root = nullptr;
+            return;
+        }
+
+        root = new Node(fromLL.root->data);
+
+        Node * currentOld = fromLL.root;
+        Node * newList = root;
+        while (currentOld->next) {
+            newList->next = new Node(currentOld->data);
+            currentOld = currentOld->next;
+            newList = newList->next;
+        }
+        newList->data = currentOld->data;
+    }
+
+    /* */
+
     void insertAtBeginning(int val) {
         Node * newNode = new Node(val);
         newNode->next = root;
@@ -53,7 +74,7 @@ class LinkedList {
     }
 
     /*
-     * -1 if the position is off
+     * -1 if the position is off the linked list
      */
 
     int getValueAt(int position) {

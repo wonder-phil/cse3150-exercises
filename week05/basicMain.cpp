@@ -35,12 +35,21 @@ int main() {
     ll_1.deleteNodeNumber(2);
     cout << ll_1 << endl;
 
-    //LinkedList ll_2 = ll_1;
+   
     ll_1.deleteNodeNumber(0);
+
+    ll_1.insertAtBeginning(99);
 
     cout << "-------------" << endl;
 
     cout << ll_1 << endl;
+
+    LinkedList ll_2 = ll_1;
+
+    cout << "-----Same--------" << endl;
+    cout << ll_1 << endl;
+    cout << ll_2 << endl;
+    cout << "-----Same--------" << endl;
 
     return 0;
 }
