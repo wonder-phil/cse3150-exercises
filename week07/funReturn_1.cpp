@@ -9,6 +9,7 @@ class BigClass {
         BigClass(int size) : arraySize{size}, array{new int[size]} {
             cout << "Constructor" << endl;
         }
+
         BigClass(const BigClass & bc) : array{new int[bc.arraySize]}, arraySize(bc.arraySize) {
             cout << "Copy constructor" << endl;
             for(int i=0; i < arraySize; i++) {
@@ -31,7 +32,7 @@ class BigClass {
 BigClass myFunction() {
     cout << "   First line in myFunction" << endl;
     BigClass bc(100);
-    cout << "   After BigClass in myFunction" << endl;
+    cout << "   After BigClass constructor in myFunction" << endl;
 
     return bc;
 }

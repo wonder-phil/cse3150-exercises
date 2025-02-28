@@ -10,7 +10,7 @@ ostream & operator<<(ostream & os, const MyString & myString) {
         os << myString.data; 
     }
     os << " starts in memory location: "
-       << static_cast<const void*>(myString.data) ;
+       << static_cast<const void *>(myString.data) ;
 
     return os;
 }
@@ -41,7 +41,7 @@ MyString & MyString::operator=(MyString && other) noexcept {
     cout << "Move operator= " << endl;
     if (this != & other) {  
 
-        delete[] data;
+        delete [] data;
 
         data = other.data;
         size = other.size;

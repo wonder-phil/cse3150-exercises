@@ -11,10 +11,11 @@ int main() {
         MyString a("Hello great wonderful world!");
         MyString b = a;
         
+        
         cout << "a: " << a << endl;
-        cout << "b: "<< b << endl;
+        cout << "b: " << b << endl;
 
-        MyString c = move(b);
+        MyString c(move(b));
 
         cout << "a: " << a << endl;
         cout << "b: " << b << endl;
@@ -22,8 +23,10 @@ int main() {
 
         MyString d("Good day!");
 
+        cout << "d: " << d << endl;
+        
         d = move(a);
-
+        
         cout << "a: " << a << endl;
         cout << "d: " << d << endl;
 
