@@ -16,8 +16,8 @@ struct Node {
         Node * next;
         int data;
 
-        Node() { next = this;};
-        Node(int val) : data{val} {
+        Node() : next{this} {};
+        Node(int val) : data{val}, next{this} {
             next = this;
         }
 
