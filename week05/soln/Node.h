@@ -17,9 +17,7 @@ struct Node {
         int data;
 
         Node() : next{this} {};
-        Node(int val) : data{val}, next{this} {
-            next = this;
-        }
+        Node(int val) : data{val}, next{this} {}
 
     private: 
         friend ostream & operator<<(ostream & os, const Node & node);
