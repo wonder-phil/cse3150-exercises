@@ -2,6 +2,7 @@
 #define _LINKED_LIST_H
 
 #include <iostream>
+#include <vector>
 
 #include "Node.h"
 
@@ -13,7 +14,7 @@ class LinkedList {
   public:
 
     Node * root;
-    Node * allAddresses;
+    vector<void *> nodeAddresses;
 
     LinkedList() : root(nullptr) {}
 
@@ -39,37 +40,50 @@ class LinkedList {
     }
 
     void printAllNodeAddresses() {
-        int size = getSize();
-        cout << static_cast<void *>(& allAddresses[0]) << " ";
-        for (int i=0; i < size; i++) {
-            cout << static_cast<void *>(allAddresses[i].next) << " ";
+        for (auto address : nodeAddresses) {
+            cout << static_cast<void *>(address) << " ";
         }
         cout << endl;
     }
 
-    Node * getAddressFromArray(int i) {
-        return & allAddresses[i];
+    void * getAddressFromArray(int i) {
+        return static_cast<void *>(nodeAddresses[i]);
+    }
+
+    void printTableNodesNextValue() {
+        cout << " Node address     next-ptr       data" << endl;
+        for (auto address : nodeAddresses) {
+            cout << static_cast<Node *>(address) << "  " ;
+            cout << static_cast<Node *>(address)->next << "    " ;
+            cout << static_cast<Node *>(address)->data << "    " << endl;
+        }
     }
 
     void copyAllNodesAddresses() {
         int size = getSize();
 
         if (size > 0) {
-            allAddresses = new Node[size];
             int i = 0;
 
             Node * current = root;
 
             while(current != current->next) {
-                allAddresses[i++] = *current;
+                nodeAddresses.push_back( static_cast<void *>(current) );
                 current = current->next;
             }
+            nodeAddresses.push_back( static_cast<void *>(current) );
         }
     }
 
     void pointerJump(Node * head) {
-        if (head != head->next) {
+        if (head && head->next && head != head->next) {
             head->next = head->next->next;
+        }
+    }
+
+    void runPointerJumps() {
+        for (auto address : nodeAddresses) {
+            pointerJump(static_cast<Node *>(address)); 
         }
     }
 
@@ -118,6 +132,7 @@ class LinkedList {
                 size ++;
                 current = current->next;
             }
+            size++;
         }
         return size;
     }
