@@ -13,6 +13,7 @@ class LinkedList {
   public:
 
     Node * root;
+    Node * allAddresses;
 
     LinkedList() : root(nullptr) {}
 
@@ -37,7 +38,40 @@ class LinkedList {
         newList->next = newList;
     }
 
-    /* */
+    void printAllNodeAddresses() {
+        int size = getSize();
+        cout << static_cast<void *>(& allAddresses[0]) << " ";
+        for (int i=0; i < size; i++) {
+            cout << static_cast<void *>(allAddresses[i].next) << " ";
+        }
+        cout << endl;
+    }
+
+    Node * getAddressFromArray(int i) {
+        return & allAddresses[i];
+    }
+
+    void copyAllNodesAddresses() {
+        int size = getSize();
+
+        if (size > 0) {
+            allAddresses = new Node[size];
+            int i = 0;
+
+            Node * current = root;
+
+            while(current != current->next) {
+                allAddresses[i++] = *current;
+                current = current->next;
+            }
+        }
+    }
+
+    void pointerJump(Node * head) {
+        if (head != head->next) {
+            head->next = head->next->next;
+        }
+    }
 
     void insertAtBeginning(int val) {
         if (nullptr == root) {
@@ -60,6 +94,10 @@ class LinkedList {
             current = current->next;
         }
         current->next = newNode;
+    }
+
+    Node * getFirstElement() {
+        return root;
     }
 
     Node * getLastElement() {

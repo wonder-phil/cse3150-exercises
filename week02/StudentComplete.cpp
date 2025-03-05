@@ -10,7 +10,7 @@ struct Student {
 };
 
 // Overloaded operator<< for Student.
-std::ostream& operator<<(std::ostream& os, const Student& student) {
+std::ostream & operator<<(std::ostream& os, const Student& student) {
     os << student.name << " " << student.number << " ";
     
     // Loop over homeworks if there are any.
