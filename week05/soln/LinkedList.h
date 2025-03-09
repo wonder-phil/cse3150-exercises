@@ -11,14 +11,13 @@ using namespace std;
 
 class LinkedList {
     friend ostream & operator<<(ostream & os, const LinkedList & linkedList);
-  public:
-
     Node * root;
     vector<void *> nodeAddresses;
 
+  public:
+
     LinkedList() : root(nullptr) {}
 
-    /* */
     LinkedList(const LinkedList & fromLL) {
         if (nullptr == fromLL.root) {
             root = nullptr;
@@ -39,15 +38,15 @@ class LinkedList {
         newList->next = newList;
     }
 
+    void * getAddressFromArray(int i) {
+        return static_cast<void *>(nodeAddresses[i]);
+    }
+
     void printAllNodeAddresses() {
         for (auto address : nodeAddresses) {
             cout << static_cast<void *>(address) << " ";
         }
         cout << endl;
-    }
-
-    void * getAddressFromArray(int i) {
-        return static_cast<void *>(nodeAddresses[i]);
     }
 
     void printTableNodesNextValue() {
