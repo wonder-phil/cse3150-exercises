@@ -10,6 +10,7 @@
 using namespace std;
 
 class LinkedList {
+    
     friend ostream & operator<<(ostream & os, const LinkedList & linkedList);
     Node * root;
     vector<void *> nodeAddresses;
