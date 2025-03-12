@@ -9,11 +9,9 @@ TEST_CASE("Stack tester") {
     
     SUBCASE("size checking") {
 
-        const int my_stack_size_Zero = 0;
         stack<int> s0;
         CHECK(0 == s0.size());
 
-        const int my_stack_size = 1;
         stack<int> s1;
         s1.push(99);
         CHECK(1 == s1.size());

@@ -15,17 +15,17 @@ stack<int> get_ints_from_file_as_stack(string file_name) {
 
   stack<int> int_stack;
 
-    while (!input_file.eof()) {
-      string in_str;
-      input_file >> in_str;
-      cout << in_str << endl;
-      int in_int;
-      if (in_str == " " || in_str == "\n") 
-        break;
-      in_int = stoi(in_str);
-      int_stack.push(in_int);
-      //cout << in_int << endl;
-    }
+  while (!input_file.eof()) {
+    string in_str;
+    input_file >> in_str;
+    cout << in_str << endl;
+    
+    if (in_str == " " || in_str == "\n") 
+      break;
+    int in_int;
+    in_int = stoi(in_str);
+    int_stack.push(in_int);
+  }
 
   input_file.close();   
 
