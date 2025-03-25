@@ -7,6 +7,3 @@
 using namespace std;
 
 
-char * StackEmptyException::what() {
-    return message;
-}

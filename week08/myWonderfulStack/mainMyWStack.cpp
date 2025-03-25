@@ -22,15 +22,15 @@ int main() {
         cout << swStack.top() << endl;
         try {
             swStack.pop();
-        } catch(exception e) {
-            cerr << e.what() << endl;
+        } catch(StackEmptyException & e) {
+            cerr << e.getMessage() << endl;
         }
     }
 
     try {
         swStack.pop();
-    } catch(StackEmptyException & e) {
-        cerr << "Error outside loop: " << e.what() << endl;
+    } catch(const StackEmptyException & e) {
+        cerr << "Error outside loop: " << e.getMessage() << endl;
     }
 
 }

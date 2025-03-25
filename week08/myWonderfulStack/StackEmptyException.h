@@ -13,13 +13,16 @@ class StackEmptyException : public std::exception {
         char * message;
 
     public:
+
         StackEmptyException(char * msg) {
             cerr << "CONSTRUCTOR" << endl; 
             message = new char[strlen(msg)];
             memcpy(message, msg, strlen(msg));
         }
 
-        char * what();
+        char * what() {
+            return message;
+        }
 
         char * getMessage() const {  return message; }
 
