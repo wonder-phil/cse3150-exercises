@@ -18,7 +18,6 @@ ostream & operator<<(ostream & os, const vector<int> & vector) {
     return os;
 }
 
-
 ostream & operator<<(ostream & os, const vector<vector<int>> & vv) {
     for (auto v: vv) {
         os << v;
