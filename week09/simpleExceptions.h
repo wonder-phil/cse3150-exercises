@@ -13,9 +13,7 @@ class StackEmptyException : public std::exception {
 
     public:
         StackEmptyException(char * msg) : message{msg} { }
-
         char * what();
-
         char * getMessage() const {  return message; }
 };
 
