@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    string input = "Hello, world! This is C++: regex_test.";
+    string input = "Hello, world! This is0 is1 is, is! is? C++: regex_test.";
     regex word_regex{"\\b\\w+\\b"};
 
     auto words_begin = sregex_iterator(input.begin(), input.end(), word_regex);
