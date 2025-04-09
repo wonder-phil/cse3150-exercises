@@ -6,9 +6,9 @@ struct OnlyOne {
 
         int x, y;
 
-        static OnlyOne *getInstance(int x, int y) { 
+        static OnlyOne * getInstance(int _x, int _y) { 
             if (nullptr == only_one) {
-                only_one = new OnlyOne(x,y);
+                only_one = new OnlyOne(_x,_y);
             } 
             return only_one; 
         }
