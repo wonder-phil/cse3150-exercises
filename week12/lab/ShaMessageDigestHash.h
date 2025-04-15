@@ -14,7 +14,7 @@ class ShaMessageDigestHash {
     string myHash;
 
     string toHexString(const unsigned char * data, size_t len) {
-        std::ostringstream oss;
+        ostringstream oss;
         for (size_t i = 0; i < len; ++i)
             oss << std::hex << std::setw(2) << std::setfill('0') << (int)data[i];
         return oss.str();
