@@ -17,13 +17,19 @@ class NfToken {
     public:
         NfToken() {}
         NfToken(string name) : tokenName{name} {}
-        
+
         void setHash(string inputHash) {
             myHash = inputHash;
         }
+
+        void setName(string name) {
+            tokenName = name;
+        }
+
         string getName() const {
             return tokenName;
         }
+
         string getHash() const {
             return myHash;
         }

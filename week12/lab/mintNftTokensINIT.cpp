@@ -33,14 +33,13 @@ int main() {
 
     auto arrayOfNfts = make_unique<NfToken[]>(totalNfts);
 
-    vector<unique_ptr<NfToken>> wallet1;
-    vector<unique_ptr<NfToken>> wallet2;
+    cout << " <" << arrayOfNfts[0] << "> " << endl;
 
-    cout << arrayOfNfts[0] << endl;
+    unique_ptr<NfToken> myNft (new NfToken("New rocket NF Token")), otherNft(new NfToken("Blue origin rocket token"));
 
-    unique_ptr<NfToken> myNft (new NfToken("New Token")), otherNft(new NfToken("Bleeble"));
+    otherNft = std::move(myNft); // myNft; Ouch!
 
-    otherNft = std::move(myNft);
+    cout << "Not minted but has a name: " << otherNft.get()->getName() << endl;
 
 
     string nftName;
@@ -50,12 +49,17 @@ int main() {
 
         sha256Hash.compHash(nftName);
         arrayOfNfts[i].setHash(sha256Hash.getHash().c_str());
+        arrayOfNfts[i].setName(nftName);
     }
 
     for (int i=0; i < totalNfts; i++) {
         cout << arrayOfNfts[i] << endl;
     }
     
+/*
+    vector<unique_ptr<NfToken>> wallet1;
+    vector<unique_ptr<NfToken>> wallet2;
+*/
 
     return 0;
 }
