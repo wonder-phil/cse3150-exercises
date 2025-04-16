@@ -12,7 +12,6 @@ struct Left {
     string name;
 
     Left(string name) : name{name} {}
-
     shared_ptr<Right> rightPtr; 
     
     ~Left() { cout << "Left destroyed" << endl; }
@@ -40,6 +39,5 @@ int main() {
 
     cout << "------------" << endl;
 
-    
 }
 

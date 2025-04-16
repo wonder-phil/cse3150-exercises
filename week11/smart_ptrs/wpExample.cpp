@@ -16,9 +16,7 @@ public:
         cout << "Parent " << name << " created.\n";
     }
 
-    ~Parent() {
-        cout << "Parent " << name << " destroyed.\n";
-    }
+    ~Parent() { cout << "Parent " << name << " destroyed.\n"; }
 };
 
 class Child {
@@ -30,9 +28,7 @@ public:
         cout << "Child " << name << " created.\n";
     }
 
-    ~Child() {
-        cout << "Child " << name << " destroyed.\n";
-    }
+    ~Child() {  cout << "Child " << name << " destroyed.\n"; }
 
     void showParent() {
         if (auto p = parent.lock()) {

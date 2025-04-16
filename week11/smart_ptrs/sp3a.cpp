@@ -13,19 +13,35 @@ struct Box {
   Box(int v) : val(v) {}
 };
 
+template<typename T>
 class Wrapper {
 
-  Box * b;
-  public:
-    Wrapper(int x) : b(new Box(x)) {}
+  int useCount = 0;
 
-    Box & operator*() { return *b; }
+  T * b;
+  public:
+    Wrapper(int x) : b(new T(x)), useCount{1} { }
+
+    Wrapper & operator=(const Wrapper & wrapper) {
+      if (this != & wrapper) {
+        useCount++;
+        
+      }
+      return *this;
+    }
+
+    int use_count() { return useCount; }
+
+    T & operator*() { return * b; }
 
     ~Wrapper() { delete b; }
 };
 
 int main() {
-  Wrapper w(-99);
+  Wrapper<Box> w(-99), w2(0);
+  w2 = w;
+  cout << "use count: " << w2.use_count() << endl;
+
   cout << (*w).val << endl;  // prints 100
 }
 
