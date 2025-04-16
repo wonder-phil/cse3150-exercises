@@ -21,6 +21,9 @@ ostream & operator<<(ostream & os, const NfToken & nft) {
     return os;
 }
 
+void transferExample(unique_ptr<NfToken> & to, unique_ptr<NfToken> & from) {
+    to = move(from);
+}
 
 int main() {
     int totalNfts = 0;
@@ -37,9 +40,11 @@ int main() {
 
     unique_ptr<NfToken> myNft (new NfToken("New rocket NF Token")), otherNft(new NfToken("Blue origin rocket token"));
 
-    otherNft = std::move(myNft); // myNft; Ouch!
+    //otherNft = std::move(myNft); // myNft; Ouch!
 
-    cout << "Not minted but has a name: " << otherNft.get()->getName() << endl;
+    transferExample(otherNft, myNft);
+
+    cout << "Not minted but has a name: <" << otherNft.get()->getName() << "> at address " << otherNft.get() << endl;
 
 
     string nftName;

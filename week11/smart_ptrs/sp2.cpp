@@ -1,33 +1,31 @@
 #include <iostream>
 #include <memory>
 
-template <typename T>
-std::ostream & operator<<(std::ostream & os, std::shared_ptr<T> & p) {
-  return os << p.get();
-}
+
+using namespace std;
 
 
-struct Foo {
+struct Box {
   int a;
-  Foo(int x) { a = x; }
-  // A descructor
-  ~Foo() { std::cout << "Destrucing this instance of Foo: " << this << std::endl; }
+  Box(int x) { a = x; }
+  ~Box() { cout << "Destrucing this instance of Box: " << this << endl; }
 };
 
 
 
 void test2() {
   using namespace std;
-  shared_ptr<Foo> p(new Foo(3));
+  shared_ptr<Box> p(new Box(3));
 
-  cout << "p = " << p << " *p = " << endl;
+  cout << "p = " << p << " *p = " << (*(p.get())).a << endl;
 
-  shared_ptr<Foo> z;
+  shared_ptr<Box> z;
   z = p;
 
   cout << "p = " << p << endl;
   cout << "z = " << z << " *z = " <<  endl;
-  cout << "use_count (z): " << z.use_count() << endl;
+  cout << "use_count (p) = " << p.use_count() << endl;
+  cout << "use_count (z) = " << z.use_count() << endl;
 }
 
 
