@@ -12,7 +12,7 @@ struct Box {
     Box(string name) : name{name} {}
     shared_ptr<Box> boxPtr; 
     
-    ~Box() { cout << "Box destroyed" << endl; }
+    ~Box() { cout << "Box destructor" << endl; }
 };
 
 

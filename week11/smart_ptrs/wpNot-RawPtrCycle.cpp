@@ -14,7 +14,7 @@ struct Left {
     Left(string name) : name{name} {}
     Right * rightPtr; 
     
-    ~Left() { cout << "Left destroyed" << endl; }
+    ~Left() { cout << "Left destructor" << endl; }
 };
 
 struct Right {
@@ -23,7 +23,7 @@ struct Right {
    Right(string name) : name{name}{}
    Left * leftPtr;
 
-   ~Right() { cout << "Right destroyed" << endl; }
+   ~Right() { cout << "Right destructor" << endl; }
 };
 
 

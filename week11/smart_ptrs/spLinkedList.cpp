@@ -11,7 +11,7 @@ struct Node {
     Node(string name) : name{name} {}
     shared_ptr<Node> next; 
     
-    ~Node() { cout << "Node <" << name << "> destroyed" << endl; }
+    ~Node() { cout << "Node [" << name << "] destructor" << endl; }
 };
 
 
@@ -32,9 +32,8 @@ int main() {
 
     node = root;
     for (int i=0;  i < numberOfNodes; i++) {
-        cout << "<" << node.get()->name << ">" << endl;
+        cout << "[" << node.get()->name << "]" << endl;
         node = node->next;
-    }
-  
+    } 
 }
 
