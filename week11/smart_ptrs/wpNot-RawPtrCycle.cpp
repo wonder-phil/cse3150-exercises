@@ -12,7 +12,7 @@ struct Left {
     string name;
 
     Left(string name) : name{name} {}
-    shared_ptr<Right> rightPtr; 
+    Right * rightPtr; 
     
     ~Left() { cout << "Left destroyed" << endl; }
 };
@@ -21,7 +21,7 @@ struct Right {
    string name;
 
    Right(string name) : name{name}{}
-   shared_ptr<Left> leftPtr;
+   Left * leftPtr;
 
    ~Right() { cout << "Right destroyed" << endl; }
 };
@@ -29,10 +29,13 @@ struct Right {
 
 
 int main() {
-    shared_ptr<Left>   left = make_shared<Left>("Babe Ruth");
-    shared_ptr<Right> right = make_shared<Right>("Jackie Robinson");
+    Left * left = new Left("Babe Ruth");
+    Right * right = new Right("Jackie Robinson");
 
     left->rightPtr = right;
-    right->leftPtr = left;
+    right->leftPtr = left;  
+
+    delete left;
+    delete right;
 }
 
