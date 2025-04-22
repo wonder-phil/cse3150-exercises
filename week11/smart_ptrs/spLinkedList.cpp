@@ -29,7 +29,7 @@ int main() {
         node = node->next;
     }
 
-    node = root; // cycle !
+    node = root; // Start from the beginning !
 
     for (int i=0;  i < numberOfNodes; i++) {
         cout << "[" << node.get()->name << "] : use_count: " << node.use_count() << endl;
