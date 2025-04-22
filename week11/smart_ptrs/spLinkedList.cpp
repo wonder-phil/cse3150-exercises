@@ -18,9 +18,8 @@ struct Node {
 
 int main() {
 
-    string names[] = { "one", "two", "three", "four", "five" };
+    string names[] = { "zero", "one", "two", "three", "four" };
     int numberOfNodes = sizeof(names)/sizeof(names[0]);
-
 
     shared_ptr<Node> root = make_shared<Node>(names[0]);
     shared_ptr<Node> node = root;
@@ -30,10 +29,13 @@ int main() {
         node = node->next;
     }
 
-    node = root;
+    node = root; // cycle !
+
     for (int i=0;  i < numberOfNodes; i++) {
-        cout << "[" << node.get()->name << "]" << endl;
+        cout << "[" << node.get()->name << "] : use_count: " << node.use_count() << endl;
         node = node->next;
     } 
+
+    cout << "root.use_count(): " << root.use_count() << endl;
 }
 

@@ -34,5 +34,8 @@ int main() {
 
     left->rightPtr = right;
     right->leftPtr = left;
+
+    //left->rightPtr.reset();
+    //right->leftPtr.reset();
 }
 
