@@ -9,14 +9,14 @@ struct Node {
 };
 
 int main() {
-    auto a = make_shared<Node>();
-    auto b = make_shared<Node>();
+    auto left = make_shared<Node>();
+    auto right = make_shared<Node>();
 
-    a->next = b;
-    b->prev = a;  // Not a cycle!  Can weak_ptr-s don't have ownership
+    left->next = right;
+    right->prev = left; 
 
-    cout << "Use count of a: " << a.use_count() << endl;
-    cout << "Use count of b: " << b.use_count() << endl;
+    cout << "Use count of left: " << left.use_count() << endl;
+    cout << "Use count of right: " << right.use_count() << endl;
 }
 
 /*

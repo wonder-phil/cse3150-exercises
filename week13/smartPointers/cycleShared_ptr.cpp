@@ -9,14 +9,14 @@ struct Node {
 };
 
 int main() {
-    auto a = make_shared<Node>();
-    auto b = make_shared<Node>();
+    auto left = make_shared<Node>();
+    auto right = make_shared<Node>();
 
-    a->next = b;
-    b->prev = a;  // A cycle, Yipes!  Can weak_ptr-s rescue us?
+    left->next = right;
+    right->prev = left;  // A cycle, Yipes!  Can weak_ptr-s rescue us?
 
-    cout << "Use count of a: " << a.use_count() << endl;
-    cout << "Use count of b: " << b.use_count() << endl;
+    cout << "Use count of left: "  << left.use_count() << endl;
+    cout << "Use count of right: " << right.use_count() << endl;
 }
 
 /*

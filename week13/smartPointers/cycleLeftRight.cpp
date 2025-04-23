@@ -18,7 +18,8 @@ struct Right {
    string name;
 
    Right(string name) : name{name}{}
-   weak_ptr<Left> leftWeakPtr;
+   //shared_ptr<Left> leftPtr;
+   weak_ptr<Left> leftPtr; // 
 
    ~Right() { cout << "Right destructed" << endl; }
 };
@@ -29,7 +30,7 @@ int main() {
     shared_ptr<Right> right = make_shared<Right>("Jackie Robinson");
 
     left->rightPtr = right;
-    right->leftWeakPtr = left;
+    right->leftPtr = left;
 
     cout << "Use count of left: " << left.use_count() << endl;
     cout << "Use count of right: " << right.use_count() << endl;
