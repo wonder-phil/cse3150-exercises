@@ -4,7 +4,7 @@
 
     It does show several key functions
     in the struct ControlTimedSharedPtr it shows how to work the timer
-    in the calss TimedSharedPtr it shows how we invoke instances of ControlTimedSharedPtr 
+    in the class TimedSharedPtr it shows how we invoke instances of ControlTimedSharedPtr 
 
 */
 #include <iostream>
