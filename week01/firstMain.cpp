@@ -1,5 +1,5 @@
-//import std;
-#include <iostream>
+import std;
+//#include <iostream>
 
 //using namespace std;
 
