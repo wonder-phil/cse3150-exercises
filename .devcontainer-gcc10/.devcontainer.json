@@ -1,0 +1,23 @@
+{
+  "name": "C++ GCC 10 (C++20)",
+  "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu-22.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y g++-10 clang-format gdb cmake ninja-build",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "twxs.cmake"
+      ],
+      "settings": {
+        "C_Cpp.default.compilerPath": "/usr/bin/g++-10"
+      }
+    }
+  }
+}
