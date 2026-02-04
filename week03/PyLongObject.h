@@ -20,7 +20,7 @@ struct PyLongObject {
 
     bool operator==(const PyLongObject & other) const;
 
-    int *digitsBase30;
+    unsigned *digitsBase30;
 };
 
 #endif
