@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #include "Student.h"
 
@@ -6,13 +7,24 @@ using namespace std;
 
 int main() {
 
-    Student student = get_student_struct_data();
+    vector<Student> allStudents;
 
-    cout << endl << student << endl;
+    int numberOfStudents, numberOfHws;
+    cout << "Enter the number of students: " << endl;
+    cin >>  numberOfStudents;
 
-    student = get_student_struct_data();
+    cout << "Enter the number of homeworks: " << endl;
+    cin >> numberOfHws;
 
-    cout << endl << student << endl;
+    for (int i = 0; i < numberOfStudents; i++) {
+        Student student = get_student_struct_data(numberOfHws);
+        allStudents.push_back(student);
+    }
+
+    for (auto aStudent : allStudents) {
+        cout << endl << aStudent << endl;
+    }
+    
 
     return 0;
 }
