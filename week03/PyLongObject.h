@@ -6,9 +6,7 @@
 using namespace std;
 
 struct PyLongObject {
-    PyLongObject(long long _iValue) {
-        iValue = _iValue;
-    }
+    PyLongObject(long long _iValue);
 
     int sign; // +1 or -1.
     int numDigits;

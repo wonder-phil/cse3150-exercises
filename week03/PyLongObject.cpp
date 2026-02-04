@@ -2,6 +2,10 @@
 
 #include "PyLongObject.h"
 
+PyLongObject::PyLongObject(long long _iValue) {
+        iValue = _iValue;
+    }
+
 int PyLongObject::getDigitN(int n) const {  // returns -1 on failure
     if (n > numDigits && !fitsInLongLong) {
         return -1;
