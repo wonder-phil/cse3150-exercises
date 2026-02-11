@@ -8,10 +8,12 @@
 using namespace std;
 
 class Bottom : public Top {
-    int bInt;
+    protected:
+        int bInt;
     public:
        Bottom() { bInt = 99; }
        void printBint() { cout << bInt << endl; }
+       int getTint() { return tInt; }
 };
 
 #endif

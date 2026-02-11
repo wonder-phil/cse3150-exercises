@@ -10,7 +10,8 @@ int main() {
 
     bottom->printBint();
     bottom->printTint();
-    //cout << << endl;
+
+    cout << "Accessing a protected value: " << bottom->getTint() << endl;
 
     return 0;
 }
