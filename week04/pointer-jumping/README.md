@@ -1,5 +1,5 @@
 
-> g++ mainSimple.cpp linked_list.c./a.out
+> g++ mainSimple.cpp linked_list.c
 
 > ./a.out
 
