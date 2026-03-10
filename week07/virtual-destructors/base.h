@@ -10,7 +10,6 @@ class Base {
 
 public:
     Base(): basePtr{new int[1000]} {}
-
     //virtual 
     ~Base() { cout << "~Base()" << endl; delete [] basePtr; }
 };

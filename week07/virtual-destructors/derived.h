@@ -8,7 +8,5 @@ class Derived : public Base {
 
 public:
     Derived() : derivedPtr{new char[2000]} {}
-
     ~Derived() { cout << "~Derived()" << endl; delete [] derivedPtr; }
-
 };
